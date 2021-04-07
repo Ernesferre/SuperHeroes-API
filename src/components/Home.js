@@ -1,7 +1,12 @@
+// import fondohome from '../../public/img/fondohome.jpg';
 
 const Home = () => {
     return ( 
-        <h1> Estamos en Home </h1>
+        <h1 className="contenedor-app"> 
+
+                Home
+
+        </h1>
      );
 }
  

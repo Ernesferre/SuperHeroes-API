@@ -1,27 +1,106 @@
+import {useState} from 'react';
+// import Error from './Error'
+// import axios from 'axios';
 
 
 const Login = () => {
 
+    const [user, setUser] = useState('');
+    const [password, setPassword] = useState('');
+    const [passwordError , setPasswordError] = useState(false);
+    const [isLogin, setIsLogin ] = useState(false);
+    const [ hasError , setHasError ] = useState(false);
 
-    const onChange = () => {
 
+
+    
+    function handleChange (name, value) {
+        if (name === 'email') {
+            setUser(value)
+            setHasError(false);
+        } else {
+            setPassword(value);
+            setHasError(false);
+            }         
+    };
+
+    console.log('usuario:', user);
+    console.log('Password:', password);
+
+
+    function ifMatch (param) {
+        if(param.user.length > 0 && param.password.length > 0 ) {
+            if (param.user === 'challenge@alkemy.org' && param.password === 'react') {
+                console.log("usuario y contrasena validado con exito, ingreso a la home")
+                const { user , password } = param;
+                let ac = {user , password};
+                let account = JSON.stringify(ac);
+                localStorage.setItem('account', account);
+                setIsLogin(true);
+            } else {
+                setIsLogin(false);
+                setHasError(true);
+            }
+        } else {
+            setIsLogin(false);
+            setHasError(true);
+        }
     }
+
+    function handleSubmit() {
+        let account = {user, password}
+        if(account) { 
+            // console.log("account:", account)
+            // console.log(account.password)
+            ifMatch(account);
+        }
+        if(account.password === 'react') {
+            
+            console.log('React fue ingresado correctamente');
+            setPassword(account.password)
+        } else {
+            setPasswordError(true);
+            console.log('Se ingreso un valor diferente a React')
+            setPassword(account.password);
+
+        }
+
+        // setPasswordError(false);
+    };
+
+
 
 
     return ( 
         <div className="form-usuario">
             <div className="contenedor-form sombra-dark">
+                
+                
+                
                 <h1>Iniciar Sesion</h1>
+
+                {hasError &&
+                <label>  Su Usuario o Contraseña son incorrectas o no existen en nuestra plataforma </label> 
+            
+                }
+
+                {isLogin &&
+                <label>Felicitaciones !!!! Ingresaste a HOME </label>
+                }
+
+                {/* Aqui debo renderizar un nuevo componente de Error */}
+                {/* {passwordError && <label> Contraseña Invalida </label> } */}
 
                 <form>
                     <div className="campo-form">
-                        <label htmlFor="email" >Email</label>
+                        <label htmlFor="usuario" >Email</label>
                         <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            placeholder="Tu Email"
-                            onChange={onChange}
+                            type='email'
+                            id='email'
+                            name='email'
+                            placeholder='Tu Email'
+                            // value={email}
+                            onChange={(e) => handleChange(e.target.name, e.target.value)} 
                         />
                     </div>
 
@@ -32,20 +111,28 @@ const Login = () => {
                             id="password"
                             name="password"
                             placeholder="Tu Password"
-                            onChange={onChange}
+                            // value={password}
+                            onChange={(e) => handleChange(e.target.name, e.target.value)}
                         />
                     </div>
 
-                    <div className="campo-form">
-                        <input 
-                            type="submit" 
-                            className="btn btn-primario btn-block"
-                            value="Iniciar Sesion"
-                        />
-
-                    </div>
+                   
 
                 </form>
+
+                <div className="campo-form">
+                        <button
+                            // type="submit" 
+                            onClick={handleSubmit}
+                            className="btn btn-primario btn-block"
+                            // value="Iniciar Sesion"
+                        >
+                            Iniciar Sesion
+                        </button>
+
+                    </div>
+
+                
 
             </div>
 
