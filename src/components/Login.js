@@ -3,7 +3,7 @@ import {useState} from 'react';
 // import axios from 'axios';
 
 
-const Login = () => {
+const Login = ({history}) => {
 
     const [user, setUser] = useState('');
     const [password, setPassword] = useState('');
@@ -18,9 +18,11 @@ const Login = () => {
         if (name === 'email') {
             setUser(value)
             setHasError(false);
+            setIsLogin(false)
         } else {
             setPassword(value);
             setHasError(false);
+            setIsLogin(false);
             }         
     };
 
@@ -37,6 +39,8 @@ const Login = () => {
                 let account = JSON.stringify(ac);
                 localStorage.setItem('account', account);
                 setIsLogin(true);
+                history.replace('/')
+
             } else {
                 setIsLogin(false);
                 setHasError(true);
