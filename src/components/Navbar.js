@@ -22,9 +22,9 @@ export const Navbar = () => {
                         activeClassName="active"
                         className="nav-item nav-link" 
                         exact
-                        to="/Equipo"
+                        to="/Buscador"
                     >
-                        Equipo
+                        Buscador
                     </NavLink>
                 </div>
             </div>

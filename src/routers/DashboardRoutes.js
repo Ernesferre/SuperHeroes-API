@@ -1,23 +1,33 @@
+import { useState } from 'react';
 import { Switch, Route, Redirect } from "react-router-dom"
 import Navbar from '../components/Navbar';
 import Home from '../components/Home';
-import Equipo from '../components/Equipo';
+import Buscador from "../components/Buscador";
+import {Info}  from '../Context/index'
 
 const DashboardRoutes = () => {
+
+    const [datas, setDatas] = useState({
+        personajes: [],
+    });
+
     return ( 
+        <Info.Provider value={[datas, setDatas]}>
         <>
             <Navbar />
 
-            <div>
+            <div className="container mt-5">
                 <Switch>
                     <Route exact path="/Home" component={Home}  />
-                    <Route exact path="/Equipo" component={Equipo}  />
+                    <Route exact path="/Buscador" component={Buscador}  />
 
-                    <Redirect to="/Home"/>
+
+                    <Redirect to="/Home" />
                 </Switch>
 
             </div>
         </>
+        </Info.Provider>
      );
 }
  

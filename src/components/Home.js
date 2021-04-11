@@ -1,10 +1,12 @@
-// import fondohome from '../../public/img/fondohome.jpg';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import { HeroCard } from './HeroCard';
 
 
 
 const Home = () => {
+  const [ characters, setCharacters] = useState([]);
+  const [ datas , setDatas ] = useState ([]);
 
     // const [characters, setCharacters] = useState([]);
 
@@ -50,13 +52,13 @@ const Home = () => {
     // Funciona !!!!!
     // --------------------------------------------------------------------
     
-    const [ characters, setCharacters] = useState([]);
+   
 
     useEffect(() => {
         (async () => {
           const charactersData = await fetchCharacters();
           setCharacters(charactersData);
-          console.log(characters);
+          // console.log(characters);
         })();
       }, []);
 
@@ -64,19 +66,29 @@ const Home = () => {
     (await axios.get('https://akabab.github.io/superhero-api/api/all.json')).data;
 
     console.log(characters);
+    // setDatas(characters);
+    // console.log(datas);
 
 
     return ( 
 
         <div> 
 
-                <h1>SuperHeroes</h1>
+            <h1>SuperHeroes</h1>
+            
+            <div className="card-columns">
             {
-                characters.length ?
-                characters.map(person =>  <h2 key={person.id}>{person.name} </h2>) :
-                <p>Cargando Personajes...</p>
+            
+                characters.map( person => (
+                    <HeroCard key={person.id}
+                         {...person}
+                    />
+                    ))  
+                    
             }
-
+        
+            </div>
+        
 
 
 
