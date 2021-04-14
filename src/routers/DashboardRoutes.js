@@ -1,18 +1,13 @@
-import { useState } from 'react';
 import { Switch, Route, Redirect } from "react-router-dom"
 import Navbar from '../components/Navbar';
 import Home from '../components/Home';
 import Buscador from "../components/Buscador";
-import {Info}  from '../Context/index'
+// importo el contexto
+
 
 const DashboardRoutes = () => {
 
-    const [datas, setDatas] = useState({
-        personajes: [],
-    });
-
     return ( 
-        <Info.Provider value={[datas, setDatas]}>
         <>
             <Navbar />
 
@@ -26,8 +21,8 @@ const DashboardRoutes = () => {
                 </Switch>
 
             </div>
+    
         </>
-        </Info.Provider>
      );
 }
  

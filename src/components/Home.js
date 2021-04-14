@@ -1,12 +1,17 @@
 import axios from 'axios';
-import { useState, useEffect } from 'react';
-import { HeroCard } from './HeroCard';
+import { useState, useEffect, useContext } from 'react';
+// // import { HeroCard } from './HeroCard';
+// import {InfoContext}  from '../Context/index'
 
 
 
 const Home = () => {
   const [ characters, setCharacters] = useState([]);
-  const [ datas , setDatas ] = useState ([]);
+
+  // const infoContext = useContext(InfoContext);
+  //   console.log(infoContext);
+
+  // const [ datas , setDatas ] = useCotext (Info);
 
     // const [characters, setCharacters] = useState([]);
 
@@ -65,7 +70,7 @@ const Home = () => {
     const fetchCharacters = async () =>
     (await axios.get('https://akabab.github.io/superhero-api/api/all.json')).data;
 
-    console.log(characters);
+    // console.log(characters);
     // setDatas(characters);
     // console.log(datas);
 
@@ -74,18 +79,10 @@ const Home = () => {
 
         <div> 
 
-            <h1>SuperHeroes</h1>
+            <h1>Equipo</h1>
             
             <div className="card-columns">
-            {
-            
-                characters.map( person => (
-                    <HeroCard key={person.id}
-                         {...person}
-                    />
-                    ))  
-                    
-            }
+          
         
             </div>
         

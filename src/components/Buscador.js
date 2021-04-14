@@ -1,18 +1,20 @@
 import axios from 'axios';
-import { useState, useEffect } from 'react';
-import Formulario from './Formulario';
+import { useState, useEffect, useContext } from 'react';
 import { HeroCard } from './HeroCard';
+// import {InfoContext}  from '../Context/index'
 
 const Buscador = () => {
 
-    const [busqueda, setBusqueda ] = useState('');
+    // const [busqueda, setBusqueda ] = useState('');
     const [heroes, setHeroes] = useState([]);
     const [ user , setUser] = useState ('');
+    // const [nuevoIntegrante, setNuevoIntegrante] = useState([]);
 
-
+    // Fernando Herrera
+    // const infoContext = useContext(InfoContext);
+    // console.log(heroes)
     
     
-
     // Buscador de info en API
     useEffect(() => {
         const consultarApi = async () => {
@@ -23,25 +25,27 @@ const Buscador = () => {
       consultarApi();
       }, []);
 
-    console.log(heroes);
+    // console.log(heroes);
 
     function handleSubmit (e)  {
         e.preventDefault();
         console.log(user);
-
         const personaje = heroes.filter(item => item.name === user);
         console.log(personaje);
         setHeroes(personaje);
-
     }  
+
     
     
 
-    function handleChange (name) {
-            setUser(name)
-            console.log(user);
-    }
     
+    function handleChange (name,value) {
+            if (name === 'name') {
+            setUser(value);
+            console.log(user);
+    }}
+
+
     return ( 
         
 
@@ -59,7 +63,7 @@ const Buscador = () => {
                             id="heroe"   
                             name="name"
                             placeholder="Ingresar Heroe"
-                            onChange={(e) => handleChange(e.target.value)} 
+                            onChange={(e) => handleChange(e.target.name, e.target.value)} 
                         />
                     </label>
                     
@@ -67,30 +71,40 @@ const Buscador = () => {
                         type="submit" 
                         value="Buscar"
                         onClick={handleSubmit}
+                        
                      />
                 </form>
 
-
-
-                {/* <button
-                    onClick= {buscarHeroe}
-                > Buscar Personaje </button> */}
-
-                </div>
-
-            {/* <div className="card-columns" */}
+                {
             
-
-            <div className="card-columns">
-            {
-            
-                heroes.map( person => (
+                    heroes.map( person => (
                     <HeroCard key={person.id}
                         {...person}
                     />
-                    ))              
-           }
-            </div>            
+                    ))  
+
+                }
+
+                
+                
+                
+               
+                
+                
+
+
+
+               
+
+            
+            
+
+            
+            
+                
+            
+            </div> 
+
         </div>
      );
 

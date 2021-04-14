@@ -64,6 +64,7 @@ const Login = ({history}) => {
             setPassword(account.password)
         } else {
             setPasswordError(true);
+            console.log(passwordError);
             console.log('Se ingreso un valor diferente a React')
             setPassword(account.password);
 

@@ -1,7 +1,27 @@
 import { createContext } from 'react';
+export const InfoContext = createContext();
 
-// Creamos un contexto que se llama Info
-// Que luego lo voy a exportar para acceder a la info de 
-// diferentes elementoes
-export const Info = createContext();
 
+// const InfoProvider = ({children}) => {
+
+//     const [datas, setDatas] = useState({
+//         personajes: [],
+//         equipo: [],
+//     });
+
+
+//     return ( 
+//         <InfoContext.Provider
+//             value={{
+//                 datas,
+//                 setDatas
+
+//             }}
+
+//         >
+//             {children}
+//         </InfoContext.Provider>
+//      );
+// }
+ 
+// export default InfoProvider;

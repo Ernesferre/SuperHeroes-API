@@ -1,11 +1,13 @@
-import { useState } from 'react';
+import { useState} from 'react';
 import ErrorBusqueda from './ErrorBusqueda';
+
 
 
 const Formulario = ({setBusqueda}) => {
 
     const [termino, setTermino] = useState('');
     const [error, setError] = useState(false);
+    // const [ datas , setDatas ] = useContext (Info);
 
  
     const buscarHeroe = e => {
