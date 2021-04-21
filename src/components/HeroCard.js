@@ -1,12 +1,18 @@
 import React from 'react'
-import {useState} from 'react'
-// import {InfoContext}  from '../Context/index'
+import {useState, useContext} from 'react'
+import {InfoContext}  from '../Context/index'
 
 export const HeroCard = (person) => {
 
     // const [ datas , setDatas ] = useContext(Info);
 
     const [ nuevoIntegrante, setNuevoIntegrante ] = useState([]);
+
+    const info = useContext(InfoContext);
+    // console.log(info);
+
+    // console.log(info);
+
 
     // console.log(person);
 
@@ -18,14 +24,21 @@ export const HeroCard = (person) => {
 
     // console.log(datas);
 
-    const addToTeam = (IdElegido) => {
+    const addToTeam = (idElegido) => {
+        console.log(idElegido)
+        
+        const personaje = info.filter((item)  =>  item.id === idElegido) 
+                setNuevoIntegrante(personaje);
+                console.log(nuevoIntegrante);
+            
+    };
     
-        const persona = person.filter(item  => item.id === IdElegido);
+
+        
     
-        console.log(persona);
-        // setNuevoIntegrante(personaje);
-        // console.log(nuevoIntegrante);
-        }
+        
+     
+        
 
     
 
@@ -36,7 +49,7 @@ export const HeroCard = (person) => {
             <div className="row -no-gutters">
                 
                 <div className="col-md-4">
-                    <img src={person.images.sm} className="card-img" alt={person.name} />
+                    <img src={person.images.md} className="card-img" alt={person.name} />
                 </div>
                 
                 <div className="col-md-8">
@@ -46,10 +59,11 @@ export const HeroCard = (person) => {
                         
                             <button 
                                 className="btn btn-success align-center"
-                                onClick= { () => addToTeam (`${person.id}`)}
+                                onClick= { () => addToTeam ( `${person.id}`)}
                             >
                                 Agregar a Equipo
-                            </button>           
+                            </button>  
+                                   
                         </div>
                 </div>
 

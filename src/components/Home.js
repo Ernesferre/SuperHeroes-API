@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect} from 'react';
 // // import { HeroCard } from './HeroCard';
 // import {InfoContext}  from '../Context/index'
 
@@ -17,19 +17,31 @@ const Home = () => {
 
     // Metodo Udemy 
 
-    // useEffect (() => {
-    //     const getPeople = async ()=> {
-    //     const respuesta = await axios('https://superheroapi.com/api/10159244794788658/character-id/')
-    //     const resultado = await respuesta.json();
+  // const getImage =  async() => {
+  
+  //   const apiKey = '10159244794788658';
+  //   const resp = await fetch(`https://superheroapi.com/api/${ apiKey }/character-id`);
+  //   const data = await resp.json();
+
+  //   console.log(data)
+
+  // peticion
+  //   .then( resp => resp.json() )
+  //   .then( ({ data }) => {
+  //       const { url } = data;
         
-    //     setCharacters(resultado)
-    //     console.log(resultado)
-    //     }
 
-    //     getPeople();
-    //     console.log(characters)
-    // },[])
+  //       console.log(url)
+        // const img = document.createElement('img');
+        // img.src = url;
 
+        // document.body.append( img );
+
+
+ 
+  // }
+
+  // getImage();
 
     
     
