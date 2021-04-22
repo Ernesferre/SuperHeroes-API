@@ -5,11 +5,13 @@ import Buscador from "../components/Buscador";
 // importo el contexto
 
 
-const DashboardRoutes = () => {
+const DashboardRoutes = ( {history} ) => {
+
+
 
     return ( 
         <>
-            <Navbar />
+            <Navbar history={history} />
 
             <div className="container mt-5">
                 <Switch>

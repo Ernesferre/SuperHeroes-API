@@ -43,13 +43,14 @@ const Login = ({history}) => {
                 let account = JSON.stringify(ac);
                 localStorage.setItem('account', account);
                 setIsLogin(true);
+                history.replace('/')
                 dispatch({
                     type: types.login,
                     payload: {
                         name: 'Ernesto'
                     }
                 })
-                history.replace('/')
+                
                 
 
             } else {
