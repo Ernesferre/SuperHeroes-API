@@ -1,9 +1,13 @@
-import {useState} from 'react';
+import {useContext, useState} from 'react';
+import { AuthContext } from '../auth/AuthContext';
+import { types } from '../types/types';
 // import Error from './Error'
 // import axios from 'axios';
 
 
 const Login = ({history}) => {
+
+    const {dispatch}  = useContext(AuthContext);
 
     const [user, setUser] = useState('');
     const [password, setPassword] = useState('');
@@ -39,7 +43,14 @@ const Login = ({history}) => {
                 let account = JSON.stringify(ac);
                 localStorage.setItem('account', account);
                 setIsLogin(true);
+                dispatch({
+                    type: types.login,
+                    payload: {
+                        name: 'Ernesto'
+                    }
+                })
                 history.replace('/')
+                
 
             } else {
                 setIsLogin(false);

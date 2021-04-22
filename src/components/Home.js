@@ -89,9 +89,11 @@ const Home = () => {
 
     return ( 
 
-        <div> 
+        <div className="container"> 
 
             <h1>Equipo</h1>
+
+            <h3>En esta seccion debo poder visualizar los 6 Heroes seleccionados</h3>
             
             <div className="card-columns">
           

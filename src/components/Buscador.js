@@ -57,10 +57,11 @@ const Buscador = () => {
 
 const onSubmit = (data, e) => { 
     console.log(data.titulo)
+    // const personaje = heroes.filter(item => item.name.toLocaleLowerCase().includes (data.titulo));
     const personaje = heroes.filter(item => item.name === data.titulo);
     console.log(personaje);
-    setHeroes(personaje);
-    console.log(heroes)
+    setElegido(personaje);
+    console.log(elegido)
     e.target.reset();
     
 }
@@ -99,11 +100,11 @@ const handleClick = () => {
                             
                             <input 
                                 type="text" 
-                                className="form-control my-2" 
+                                className="form-control my-2 shadow-lg p-3 mb-5 bg-white rounded" 
                                 id="heroe"  
                                 // value = { inputValue } 
                                 name="titulo"
-                                placeholder="Ingresar Heroe"
+                                placeholder="Encuentra a tu Heroe"
                                 // onChange={handleChange} 
                                 {...register("titulo", { required: true, message:'Campo Obligatorio'})}
                             />
@@ -115,7 +116,11 @@ const handleClick = () => {
 
                         
       
-                        <button className="btn btn-primary ml-2">Consultar</button>
+                        <button 
+                            className="btn btn-primary ml-2"
+                            type="submit"
+                        >
+                                Buscar </button>
                         <button 
                             className="btn btn-primary ml-2"
                             onClick={handleRefresh}

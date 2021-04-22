@@ -1,24 +1,31 @@
 
-import {useState} from 'react';
+import { useReducer, useEffect} from 'react';
 import AppRouter from './routers/AppRouter';
-import {InfoContext} from './Context/index'
+import { AuthContext } from './auth/AuthContext';
+import { authReducer } from './auth/authReducer';
+
+const init = () => {
+  return JSON.parse(localStorage.getItem('user')) || {logged: false};
+}
+ 
+
+
 
 function App() {
 
-  const [info, setInfo] = useState([]);
-  // const [ arrayHeroes, setArrayHeroes ] = useState([1,2,3,4]);
+  const [ user , dispatch] = useReducer( authReducer, {} , init);
+
+  useEffect(() => {
+    localStorage.setItem('user', JSON.stringify(user));
+  }, [user])
  
   return (
  
-   <InfoContext.Provider value={{
-     info,
-     setInfo,
-     
-    }}>
-      
+  
+    <AuthContext.Provider value={{ user, dispatch }} >
       <AppRouter/>
-    </InfoContext.Provider>
-   
+    </AuthContext.Provider >
+
   )
 }
 
