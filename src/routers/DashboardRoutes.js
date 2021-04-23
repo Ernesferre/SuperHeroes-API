@@ -1,7 +1,8 @@
 import { Switch, Route, Redirect } from "react-router-dom"
 import Navbar from '../components/Navbar';
-import Home from '../components/Home';
+
 import Buscador from "../components/Buscador";
+import Equipo from "../components/Equipo";
 // importo el contexto
 
 
@@ -15,11 +16,11 @@ const DashboardRoutes = () => {
 
             <div className="container mt-5">
                 <Switch>
-                    <Route exact path="/Home" component={Home}  />
+                    <Route exact path="/Equipo" component={Equipo}  />
                     <Route exact path="/Buscador" component={Buscador}  />
 
 
-                    <Redirect to="/Home" />
+                    <Redirect to="/Equipo" />
                 </Switch>
 
             </div>

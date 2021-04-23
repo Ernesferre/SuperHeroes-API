@@ -22,15 +22,15 @@ export const Navbar = () => {
     
 
     return (
-        <nav className="navbar navbar-expand-sm navbar-dark bg-primary text-3">
+        <nav className="navbar navbar-expand-sm navbar-dark bg-primary">
             
             
             <Link 
                 // activeClassName="active"
                 className="navbar-brand nav-item nav-link" 
-                to="/Home"
+                to="/Equipo"
             >
-                Home
+                Equipo
             </Link>
 
             <div className="navbar-collapse">

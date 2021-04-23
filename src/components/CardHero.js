@@ -7,14 +7,13 @@ const CardHero = ({img } ) => {
 
     const handleClick = () => {
         console.log("Heroe Elegido");
-        // console.log(data);
+        // cuando el usuario hace click debo poder ingresar el objeto a un nuevo Array que discho array se me muestre en la pantalla de Equipo;
         
     }
     
     return (
-        <div className="card ms-3 mb-3 d-flex flex-wrap" style={ { maxWidth: 200 }}>
-            {/* <div className="row no-gutters"> */}
-                {/* <div className="col-md-10"> */}
+        <div className="card ms-3 mb-3 d-flex flex-wrap" style={ { maxWidth: 150 }}>
+         
 
                 <div className="card-body">
                     <p className="card-title text-center mt-3"> {img.name} </p> 
@@ -30,8 +29,7 @@ const CardHero = ({img } ) => {
                         </button>
                     </div>
 
-                {/* </div> */}
-            {/* </div>  */}
+                
         </div>
     )
 }

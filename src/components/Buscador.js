@@ -29,7 +29,6 @@ const Buscador = () => {
         
         const url = 'https://akabab.github.io/superhero-api/api/all.json';
         
-        
         const respuesta = await axios.get ( url );
         const response = (respuesta.data);
         
@@ -40,8 +39,6 @@ const Buscador = () => {
                 image: img.images.sm,        
             }
         })
-
-        
 
 
         // console.log(datos)
@@ -60,7 +57,7 @@ const onSubmit = (data, e) => {
     // const personaje = heroes.filter(item => item.name.toLocaleLowerCase().includes (data.titulo));
     const personaje = heroes.filter(item => item.name === data.titulo);
     console.log(personaje);
-    setElegido(personaje);
+    setHeroes(personaje);
     console.log(elegido)
     e.target.reset();
     
@@ -129,7 +126,7 @@ const handleClick = () => {
                         </button>
                 </form>
 
-                    
+                <div className="d-flex flex-wrap justify-content-center">   
 
                      { 
                         ( heroes.map ( img  => (
@@ -140,6 +137,8 @@ const handleClick = () => {
                         ))
                         )
                     }
+
+                </div>
             
             </div> 
 
@@ -175,3 +174,27 @@ export default Buscador;
                     //     ))
                     //     )
                     // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    // .featuredProducts ul {
+                    //     display: flex;
+                    //     flex-wrap: wrap;
+                    //     justify-content: center;
+                        
+                    //   }
+                      
+                    //   .featuredProducts ul li {
+                    //     width: 20%;
+                    //     list-style: none;
+                    //   }
