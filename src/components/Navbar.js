@@ -22,10 +22,12 @@ export const Navbar = () => {
     
 
     return (
-        <nav className="navbar navbar-expand-sm navbar-dark bg-primary">
+        <nav className="navbar navbar-expand-sm navbar-dark bg-primary text-3">
+            
             
             <Link 
-                className="navbar-brand" 
+                // activeClassName="active"
+                className="navbar-brand nav-item nav-link" 
                 to="/Home"
             >
                 Home
@@ -37,7 +39,7 @@ export const Navbar = () => {
         
 
                     <NavLink 
-                        activeClassName="active"
+                        // activeClassName="active"
                         className="nav-item nav-link" 
                         exact
                         to="/Buscador"
@@ -47,8 +49,38 @@ export const Navbar = () => {
                 </div>
             </div>
 
-            <div className="navbar-collapse collapse w-100 order-3 dual-collapse2">
-                <ul className="navbar-nav ml-auto">
+            {/* <div className="navbar-collapse">
+                <div className="navbar-nav">
+
+                    <span className="nav-item nav-link text-info" >
+                        {"Hola"} { name }
+                    </span>
+
+                    
+                </div>
+            </div> */}
+
+            {/* <div className="navbar-collapse collapse w-100 order-3 dual-collapse2"> */}
+                <div className="navbar-nav ml-auto nav-item nav-link ">
+
+                    <button 
+                        
+                        className="nav-item nav-link text-dark " 
+                        onClick = {handleLogout}
+                        
+                    >
+                        Logout
+                    </button>
+
+                    
+                </div>
+            {/* </div> */}
+
+
+
+
+            {/* <div className="navbar-collapse collapse w-100 order-3 dual-collapse2">
+                <ul className="navbar-nav">
 
                     <span className="nav-item nav-link text-info" >
                         { name }
@@ -63,7 +95,7 @@ export const Navbar = () => {
                         Logout
                     </button>
                 </ul>
-            </div>
+            </div> */}
         </nav>
     )
 }
