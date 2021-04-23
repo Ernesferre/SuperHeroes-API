@@ -22,7 +22,7 @@ export const Navbar = () => {
     
 
     return (
-        <nav className="navbar navbar-expand-sm navbar-dark bg-primary">
+        <nav className="navbar navbar-expand-sm navbar-dark bg-success">
             
             
             <Link 

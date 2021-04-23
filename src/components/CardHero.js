@@ -12,7 +12,7 @@ const CardHero = ({img } ) => {
     }
     
     return (
-        <div className="card ms-3 mb-3 d-flex flex-wrap" style={ { maxWidth: 150 }}>
+        <div className="card ms-3 mb-3 d-flex flex-wrap bg-success p-2" style={ { maxWidth: 150 }}>
          
 
                 <div className="card-body">
@@ -23,7 +23,7 @@ const CardHero = ({img } ) => {
 
                     <div className="card-body text-center mb-3">               
                         <button 
-                                className="btn btn-success card-text text-center"
+                                className="btn btn-warning card-text text-center"
                                 onClick= {handleClick}
                                 >Agregar a Equipo
                         </button>

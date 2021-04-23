@@ -90,7 +90,7 @@ const Login = ({history}) => {
 
     return ( 
         <div className="form-usuario">
-            <div className="contenedor-form sombra-dark">
+            <div className="contenedor-form sombra-dark mb-5">
                 
                 
                 
@@ -108,7 +108,7 @@ const Login = ({history}) => {
                 {/* Aqui debo renderizar un nuevo componente de Error */}
                 {/* {passwordError && <label> Contraseña Invalida </label> } */}
 
-                <form>
+                <form >
                     <div className="campo-form">
                         <label htmlFor="usuario" >Email</label>
                         <input

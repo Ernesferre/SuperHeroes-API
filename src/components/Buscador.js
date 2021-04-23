@@ -81,7 +81,7 @@ const handleClick = () => {
         <div className="container">
             <div className="jumbotron">  
 
-                <h1>Buscador SuperHeroes</h1>
+                <h1 className="text-white">Buscador SuperHeroes</h1>
 
                 
                
@@ -97,7 +97,7 @@ const handleClick = () => {
                             
                             <input 
                                 type="text" 
-                                className="form-control my-2 shadow-lg p-3 mb-5 bg-white rounded" 
+                                className="form-control my-2 shadow-lg p-3 mb-2 bg-white rounded" 
                                 id="heroe"  
                                 // value = { inputValue } 
                                 name="titulo"
@@ -111,19 +111,23 @@ const handleClick = () => {
                             {errors?.titulo?.message}
                         </span>
 
-                        
+                        <div className="d-flex justify-content-around">
       
-                        <button 
-                            className="btn btn-primary ml-2"
-                            type="submit"
-                        >
-                                Buscar </button>
-                        <button 
-                            className="btn btn-primary ml-2"
-                            onClick={handleRefresh}
-                        >
-                            Volver
-                        </button>
+                            <button 
+                                className="btn btn-warning btn-lg"
+                                type="submit"
+                            >
+                                    Buscar 
+                            </button>
+                            
+                            {/* <button 
+                                className="btn btn-primary"
+                                onClick={handleRefresh}
+                            >
+                                Volver
+                            </button> */}
+
+                        </div>
                 </form>
 
                 <div className="d-flex flex-wrap justify-content-center">   
