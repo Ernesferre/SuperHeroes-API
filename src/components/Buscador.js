@@ -2,15 +2,21 @@ import axios from 'axios';
 import { useState, useEffect, useContext } from 'react';
 import CardHero from './CardHero';
 import { useForm } from 'react-hook-form';
-// import {InfoContext}  from '../Context/index'
+import AppContext from '../AppContext/AppContext';
+
 
 
 
 const Buscador = () => {
 
+    const context = useContext(AppContext);
+
+    const {heroesBuscador, consultarApi, buscarHeroe, regresarHeroes, heroes } = context
+
+    // console.log(heroes);
+
     
-    const [ heroes , setHeroes ] = useState([]);
-    const [ elegido, setElegido] = useState({});
+    // const [ elegido, setElegido] = useState({});
     // const [ inputValue , setInputValue] = useState('');
     // const [ nuevoIntegrante , setNuevoIntergante] = useState ([]);
     
@@ -20,51 +26,44 @@ const Buscador = () => {
     
     useEffect(() => {
         consultarApi();
-        console.log("API consumida")
+        
+        console.log(heroesBuscador)
     }, []);
 
     
 
-    const consultarApi = async() => {
-        
-        const url = 'https://akabab.github.io/superhero-api/api/all.json';
-        
-        const respuesta = await axios.get ( url );
-        const response = (respuesta.data);
-        
-        const datos = response.map ( img => {
-            return {                
-                id: img.id,
-                name: img.name,
-                image: img.images.sm,        
-            }
-        })
+   
 
-
-        // console.log(datos)
-        setHeroes( datos );
-        
-        
-}
-
-        console.log(heroes);
+        // console.log(heroes);
 
 
 
 
 const onSubmit = (data, e) => { 
+    e.preventDefault()
     console.log(data.titulo)
     // const personaje = heroes.filter(item => item.name.toLocaleLowerCase().includes (data.titulo));
-    const personaje = heroes.filter(item => item.name === data.titulo);
+    const personaje = heroesBuscador.filter(item => item.name === data.titulo);
     console.log(personaje);
-    setHeroes(personaje);
-    console.log(elegido)
+
+    buscarHeroe(personaje);
+    console.log(heroesBuscador);
+
+    // setHeroes(personaje);
+    // console.log(elegido)
     e.target.reset();
     
 }
 
+
+
 const handleRefresh = () => {
+
+    const todosLosHeroes = [...heroes]
+    console.log(todosLosHeroes)
     // con esta funcion debo lograr volver a mostrar todos los personajes
+    regresarHeroes(todosLosHeroes);
+    console.log(heroesBuscador);
     console.log("Click")
 }
 
@@ -120,12 +119,12 @@ const handleClick = () => {
                                     Buscar 
                             </button>
                             
-                            {/* <button 
+                            <button 
                                 className="btn btn-primary"
                                 onClick={handleRefresh}
                             >
                                 Volver
-                            </button> */}
+                            </button>
 
                         </div>
                 </form>
@@ -133,7 +132,7 @@ const handleClick = () => {
                 <div className="d-flex flex-wrap justify-content-center">   
 
                      { 
-                        ( heroes.map ( img  => (
+                        ( heroesBuscador.map ( img  => (
                             <CardHero
                                 key={img.id}
                                 img={img}

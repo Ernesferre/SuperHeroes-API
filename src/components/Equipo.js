@@ -6,39 +6,7 @@ import CardHero from './CardHero';
 
 const Equipo = () => {
   
-// const [equipo, setEquipo] = useState([])
-  
 
-//     useEffect(() => {
-//       consultarApi();
-//       console.log("API consumida")
-//     }, []);
-  
-//   const consultarApi = async() => {
-        
-//     const url = 'https://akabab.github.io/superhero-api/api/all.json';
-    
-//     const respuesta = await axios.get ( url );
-//     const response = (respuesta.data);
-    
-//     const datos = response.map ( img => {
-//         return {                
-//             id: img.id,
-//             name: img.name,
-//             image: img.images.sm,
-//             powerstats: img.powerstats,
-//             // alignment: img.alignment
-
-//         }
-//     })
-
-
-//     console.log(datos)
-//     setEquipo( datos );
-//     console.log(equipo)
-    
-    
-// }
 
 
     return (
@@ -47,7 +15,7 @@ const Equipo = () => {
 
             <h1 className="text-white justify-content-center justify-content-center">Equipo</h1>
 
-            <h2 className="text-white text-center">Este seria el HOME de la app. Esta seccion debo poder visualizar los 6 Heroes seleccionados.</h2>
+            <h2 className="text-white text-center">Este seria el HOME de la app. En esta seccion debo poder visualizar los 6 Heroes seleccionados.</h2>
             <h3 className="text-white text-center"> Cada item del Listado debe contener el NOMBRE del Heroe, su IMAGEN y sus POWERSTATS</h3>
             <hr/>
             <h3 className="text-white text-center list-group list-styled" > POWERSTATS:</h3>
