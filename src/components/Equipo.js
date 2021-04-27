@@ -45,6 +45,7 @@ const Equipo = () => {
         </div>
 
         <div className="mt-5">
+              
               { 
                   equipo.length ?
                   ( <TeamIndicators/> )  : null

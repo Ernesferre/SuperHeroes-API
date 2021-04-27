@@ -15,7 +15,11 @@ const Buscador = () => {
 
     const context = useContext(AppContext);
 
-    const {heroesBuscador, consultarApi, buscarHeroe, regresarHeroes, heroes } = context
+    const [isVolver, setIsVolver] = useState(false)
+    const [isBuscar, setIBuscar] = useState(true)
+
+
+    const {heroesBuscador, consultarApi, buscarHeroe } = context
 
     // console.log(heroes);
 
@@ -45,6 +49,8 @@ const Buscador = () => {
 
 const onSubmit = (data, e) => { 
     e.preventDefault()
+    setIsVolver(true);
+    setIBuscar(false);
     console.log(data.titulo)
     // const personaje = heroes.filter(item => item.name.toLocaleLowerCase().includes (data.titulo));
     const personaje = heroesBuscador.filter(item => item.name === data.titulo);
@@ -125,19 +131,24 @@ const handleClick = () => {
 
                                     <div className="d-flex justify-content-around">
                 
-                                        <button 
+                                        { isBuscar && <button 
                                             className="btn btn-warning btn-lg"
                                             type="submit"
                                         >
                                                 Buscar 
-                                        </button>
+                                        </button> }
+
+
+                                        { isVolver && <button 
+                                                className="btn btn-primary"
+                                                onClick={handleRefresh}
+                                            >
+                                                Volver
+                                        </button> }
+
                                         
-                                        <button 
-                                            className="btn btn-primary"
-                                            onClick={handleRefresh}
-                                        >
-                                            Volver
-                                        </button>
+                                        
+                                        
 
                                     </div>
                             </form>
@@ -165,8 +176,15 @@ const handleClick = () => {
                         <span className="spinner-border spinner-border-sm"></span>
                         
                     </button>
-
                 }
+                
+
+                    
+
+
+                {/* {isLogin &&
+                <label>Felicitaciones !!!! Ingresaste a HOME </label>
+                } */}
 
                     
 

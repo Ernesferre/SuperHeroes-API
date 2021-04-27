@@ -1,11 +1,13 @@
 import React from 'react'
 import AppContext from '../AppContext/AppContext';
-import { useContext } from 'react';
+import { useContext} from 'react';
+import { useHistory } from "react-router-dom";
 
 
 const TeamDetails = () => {
 
     // console.log(img.name);
+    const history = useHistory();
 
     const context = useContext(AppContext);
 
@@ -16,12 +18,23 @@ const TeamDetails = () => {
     // visualizarHeroe(img);
 
     console.log(hero);
+
+    const handleBack = () => {
+        history.push("/Equipo");   
+    }
    
 
     return (
         <>
         
         <h1 className="text-white"> {hero.name}  </h1>
+            <button 
+                className="btn btn-primary btn-lg text-center"
+                onClick={handleBack}
+                >
+                 
+                Volver 
+            </button>
 
             
             <div className="mt-5 d-flex justify-content-center">
@@ -44,7 +57,7 @@ const TeamDetails = () => {
                             <h3 className="text-center text-white mb-2"> POWERSTATS: </h3>
                             <ul className="list-group list-group-flush bg-warning">
 
-                                {/* <li className="list-group-item bg-warning"><b> Intelligence: </b> {hero.powerstats.intelligence} </li> */}
+                                <li className="list-group-item bg-warning"><b> Intelligence: </b> {hero.powerstats.intelligence} </li>
                                 <li className="list-group-item bg-success"><b> Strength: </b> {hero.powerstats.strength} </li>
                                 <li className="list-group-item bg-warning"><b> Speed: </b> {hero.powerstats.speed} </li>
                                 <li className="list-group-item bg-success"><b> Durability: </b>{hero.powerstats.durability} </li>
@@ -72,6 +85,12 @@ const TeamDetails = () => {
 
                     </div>
 
+                    
+
+            </div>
+
+            <div className="">
+                
             </div>
 
             

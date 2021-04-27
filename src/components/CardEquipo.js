@@ -39,11 +39,8 @@ const CardEquipo = ({img}) => {
 
         const handleDelete = (id) => {
             console.log(`removiendo personaje con ID: ${id}`);
-                    
             const DeleteHeroe = equipo.filter((heroe) => heroe.id !== id);
             eliminarHeroe(DeleteHeroe);
-
-            
             console.log(equipo) 
     
         }
