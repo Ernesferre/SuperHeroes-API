@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar';
 
 import Buscador from "../components/Buscador";
 import Equipo from "../components/Equipo";
+import TeamDetails from "../components/TeamDetails";
 // importo el contexto
 
 
@@ -18,6 +19,7 @@ const DashboardRoutes = () => {
                 <Switch>
                     <Route exact path="/Equipo" component={Equipo}  />
                     <Route exact path="/Buscador" component={Buscador}  />
+                    <Route exact path="/TeamDetails" component={TeamDetails}  />
 
 
                     <Redirect to="/Equipo" />

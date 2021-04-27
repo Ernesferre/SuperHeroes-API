@@ -9,7 +9,7 @@ export const Navbar = () => {
 
     const { user: { name }, dispatch }  = useContext(AuthContext);
     const history = useHistory();
-    console.log(history);
+    // console.log(history);
 
     const handleLogout = () => {
 

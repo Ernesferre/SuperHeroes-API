@@ -11,6 +11,7 @@ import axios from 'axios';
 const AppState = ({children} ) => {
 
     const initialState = {
+        hero: {},
         heroes: [],
         equipo: [],
         heroesBuscador: [],
@@ -33,18 +34,7 @@ const AppState = ({children} ) => {
             
         }
         
-        // const url = 'https://akabab.github.io/superhero-api/api/all.json';
-        
-        // const respuesta = await axios.get ( url );
-        // const response = (respuesta.data);
-        
-        // const datos = response.map ( img => {
-        //     return {                
-        //         id: img.id,
-        //         name: img.name,
-        //         image: img.images.sm,        
-        //     }
-        // })  
+      
         
 }
 
@@ -67,9 +57,24 @@ const agregarAlEquipo = async (heroe) => {
     })
 }
 
+const eliminarHeroe = async (heroe) => {
+    console.log(heroe);
+    dispatch({
+        type: types.eliminar_Heroe, payload: heroe
+    })
+}
+const visualizarHeroe = async (heroe) => {
+    // console.log(heroe);
+    dispatch({
+        type: types.visualizar_heroe, payload: heroe
+    })
+}
+
+
     
     return (
         <AppContext.Provider value= {{
+            hero: state.hero,
             heroes: state.heroes,
             equipo: state.equipo,
             heroesBuscador: state.heroesBuscador,
@@ -77,6 +82,8 @@ const agregarAlEquipo = async (heroe) => {
             buscarHeroe,
             regresarHeroes,
             agregarAlEquipo,
+            eliminarHeroe,
+            visualizarHeroe
             
 
 
@@ -88,3 +95,18 @@ const agregarAlEquipo = async (heroe) => {
 }
 
 export default AppState
+
+
+
+  // const url = 'https://akabab.github.io/superhero-api/api/all.json';
+        
+        // const respuesta = await axios.get ( url );
+        // const response = (respuesta.data);
+        
+        // const datos = response.map ( img => {
+        //     return {                
+        //         id: img.id,
+        //         name: img.name,
+        //         image: img.images.sm,        
+        //     }
+        // })  

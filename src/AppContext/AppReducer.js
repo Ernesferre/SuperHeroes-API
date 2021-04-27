@@ -26,6 +26,22 @@ const AppReducer = (state, action) => {
                 ...state,
                 equipo: [...state.equipo, action.payload]
             }
+            case types.visualizar_heroe:
+                console.log(action.payload)
+            return {
+                ...state,
+                hero:  action.payload
+            }
+
+            // case types.eliminar_Heroe:
+            //     console.log(action.payload)
+            // return {
+            //     ...state,
+            //     equipo: [...state.equipo, action.payload]
+            // }
+            
+
+
   
       default:
           return state;
