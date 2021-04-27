@@ -14,7 +14,7 @@ const CardEquipo = ({img}) => {
     
     const context = useContext(AppContext);
 
-    const {heroesBuscador, consultarApi, buscarHeroe, regresarHeroes, hero, eliminarHeroe, equipo, visualizarHeroe} = context
+    const {heroesBuscador, consultarApi, buscarHeroe, agregarAlEquipo, hero, eliminarHeroe, equipo, visualizarHeroe} = context
 
     // const [formacion, setFormacion] = useState([])
 
@@ -41,9 +41,9 @@ const CardEquipo = ({img}) => {
             console.log(`removiendo personaje con ID: ${id}`);
                     
             const DeleteHeroe = equipo.filter((heroe) => heroe.id !== id);
-            console.log(DeleteHeroe);
+            eliminarHeroe(DeleteHeroe);
 
-            eliminarHeroe(DeleteHeroe)
+            
             console.log(equipo) 
     
         }

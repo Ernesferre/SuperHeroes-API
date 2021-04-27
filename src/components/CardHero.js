@@ -8,7 +8,7 @@ import {Link} from 'react-router-dom';
 
 const CardHero = ({ img } ) => {
 
-    const history = useHistory();
+    
 
     const context = useContext(AppContext);
 
@@ -23,7 +23,7 @@ const CardHero = ({ img } ) => {
             const heroe = heroes.find( personaje => personaje.id === id)
             console.log(heroe);
             agregarAlEquipo(heroe);
-            visualizarHeroe(id);
+            // visualizarHeroe(id);
             
             console.log("Heroe Elegido");
             console.log(equipo);

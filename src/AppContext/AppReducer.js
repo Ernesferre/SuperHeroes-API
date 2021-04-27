@@ -33,12 +33,12 @@ const AppReducer = (state, action) => {
                 hero:  action.payload
             }
 
-            // case types.eliminar_Heroe:
-            //     console.log(action.payload)
-            // return {
-            //     ...state,
-            //     equipo: [...state.equipo, action.payload]
-            // }
+            case types.eliminar_Heroe:
+                console.log(action.payload)
+            return {
+                ...state,
+                equipo:  action.payload
+            }
             
 
 
