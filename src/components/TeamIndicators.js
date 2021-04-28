@@ -8,6 +8,7 @@ import AppContext from '../AppContext/AppContext'
 const TeamIndicators = () => {
 
     const context = useContext(AppContext);
+    
     const [totalInt, setTotalInt] = useState()
     const [totalStr, setTotalStr] = useState()
     const [totalSp, setTotalSp] = useState()
@@ -124,7 +125,7 @@ const TeamIndicators = () => {
         
         <div className="mb-4">
             
-            <h2 className="text-white">Indicadores de tu Equipo</h2>
+            <h3 className="text-white">Acumulados de Powerstats</h3>
 
 
             <ul className="list-group list-group-flush bg-warning mb-3">

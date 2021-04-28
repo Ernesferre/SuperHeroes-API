@@ -22,50 +22,42 @@ export const Navbar = () => {
     
 
     return (
-        <nav className="navbar navbar-expand-sm navbar-dark bg-success">
+        <nav className="navbar sticky-top navbar-expand-sm navbar-dark bg-success ">
             
-            
-            <Link 
-                // activeClassName="active"
-                className="navbar-brand nav-item nav-link" 
-                to="/Equipo"
-            >
-                Equipo
-            </Link>
+            <div className="navbar-collapse d-flex justify-content-start">
 
-            <div className="navbar-collapse">
-                <div className="navbar-nav">
-
-        
-
+                <div className="navbar-nav p-1">  
                     <NavLink 
                         // activeClassName="active"
-                        className="nav-item nav-link" 
+                        className="nav-item nav-link display-6" 
+                        to="/Equipo"
+                    >
+                        Equipo   
+                    </NavLink>
+                </div>
+       
+                
+                <div className="navbar-nav ">
+                    <NavLink 
+                        // activeClassName="active"
+                        className="nav-item nav-link display-6" 
                         exact
                         to="/Buscador"
                     >
                         Buscador
                     </NavLink>
                 </div>
+
             </div>
 
-            {/* <div className="navbar-collapse">
-                <div className="navbar-nav">
+           
 
-                    <span className="nav-item nav-link text-info" >
-                        {"Hola"} { name }
-                    </span>
-
-                    
-                </div>
-            </div> */}
-
-            {/* <div className="navbar-collapse collapse w-100 order-3 dual-collapse2"> */}
-                <div className="navbar-nav ml-auto nav-item nav-link ">
+            <div className="">
+                <div className="navbar-nav ml-auto nav-item nav-link ml-4 ">
 
                     <button 
                         
-                        className="nav-item nav-link text-dark " 
+                        className="nav-item nav-link text-dark btn btn-warning " 
                         onClick = {handleLogout}
                         
                     >
@@ -74,28 +66,9 @@ export const Navbar = () => {
 
                     
                 </div>
-            {/* </div> */}
+            </div>
 
 
-
-
-            {/* <div className="navbar-collapse collapse w-100 order-3 dual-collapse2">
-                <ul className="navbar-nav">
-
-                    <span className="nav-item nav-link text-info" >
-                        { name }
-                    </span>
-
-                    <button 
-                        
-                        className="nav-item nav-link btn" 
-                        onClick = {handleLogout}
-                        
-                    >
-                        Logout
-                    </button>
-                </ul>
-            </div> */}
         </nav>
     )
 }

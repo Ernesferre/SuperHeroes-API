@@ -4,6 +4,7 @@ import AppContext from '../AppContext/AppContext';
 import CardEquipo from './CardEquipo';
 import {Link} from 'react-router-dom';
 import TeamIndicators from './TeamIndicators';
+import TeamIndicators2 from './TeamIndicators2';
 import TeamDetails from './TeamDetails';
 
 
@@ -39,18 +40,31 @@ const Equipo = () => {
                           ))          
                         )
                      :
-                        <Link to={`/Buscador`} className="text-lg text-warning border border-warning p-2 mt-5">Elegi Tu Equipo de Heroes Preferidos</Link>
+                        <Link to={`/Buscador`} className="text-lg text-warning border border-warning p-2 mt-5 display-3">Elegi Tu Equipo de Heroes Preferidos</Link>
         }
 
         </div>
 
-        <div className="mt-5">
+        <div className="mt-5 d-flex justify-content-center ">
               
+            <div className=" p-5">  
               { 
                   equipo.length ?
-                  ( <TeamIndicators/> )  : null
-              
+                  ( <TeamIndicators/>
+                    )  : 
+                    
+                    null             
+              }   
+            </div>
+
+            <div className=" p-5">
+              { 
+                  equipo.length ?
+                   <TeamIndicators2/>
+                      : 
+                    null              
               }
+            </div>
         </div> 
         
 

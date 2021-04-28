@@ -1,6 +1,7 @@
 import React, {useContext } from 'react'
 import AppContext from '../AppContext/AppContext'
 import Swal from 'sweetalert2'
+import {Link} from 'react-router-dom';
 
 
 
@@ -24,7 +25,7 @@ const CardHero = ({ img } ) => {
             console.log("El Heroes SI encuentra dentro del equipo")
             Swal.fire({
                 position: 'center',
-                icon: 'warning',
+                icon: 'error',
                 title: 'Este Hereo ya Fue Agregado, intenta con otro ! ',
                 showConfirmButton: false,
                 timer: 2300
@@ -41,13 +42,14 @@ const CardHero = ({ img } ) => {
                 
                 console.log("Heroe Elegido");
                 console.log(equipo);
+                console.log(equipo.length);
     
                 Swal.fire({
                         position: 'center',
                         icon: 'success',
                         title: `Heroe numero ${equipo.length + 1} agregado ! `,
                         showConfirmButton: false,
-                        timer: 1800
+                        timer: 2000
                       })
     
                       
@@ -72,7 +74,7 @@ const CardHero = ({ img } ) => {
                     icon: 'error',
                     title: 'UPS',
                     text: 'Lo Siento, ya has agregado a tus 6 heroes',
-                    // footer: '<a href={`/Equipo`} > Ver Equipo </a>',
+                    // footer: <a to={`/Equipo`} > Ver Equipo </Link>,
                   })
                 
                 }

@@ -27,22 +27,27 @@ const TeamDetails = () => {
     return (
         <>
         
+       
         <h1 className="text-white"> {hero.name}  </h1>
-            <button 
-                className="btn btn-primary btn-lg text-center"
-                onClick={handleBack}
-                >
-                 
-                Volver 
-            </button>
+        
+        
+            <div className="d-flex justify-content-around">
+                    <button 
+                        className="btn btn-primary btn-lg text-center"
+                        onClick={handleBack}
+                        >
+                        
+                        Volver 
+                    </button>
+            </div>
 
             
-            <div className="mt-5 d-flex justify-content-center">
-                    <div className="col-4 text-center mr-3 p-2">
+                    <div className="mt-3 d-flex justify-content-center">
+                     <div className="col-4 text-center mr-3 p-2">
                         <img 
                             src={hero.images.md}
                             alt= {hero.name}
-                            className="img-thumbnail"
+                            className="img-thumbnail rounded-circle"
                     
                         ></img>
                     
@@ -52,7 +57,7 @@ const TeamDetails = () => {
             
 
             
-                    <div className=" col-6 text-white ml-3 mr-3">
+                    <div className="col-6 text-white ml-3 mr-3 mb-5">
                             {/* <h2 className="text-center text-white">{hero.name}</h2> */}
                             <h3 className="text-center text-white mb-2"> POWERSTATS: </h3>
                             <ul className="list-group list-group-flush bg-warning">
@@ -89,9 +94,6 @@ const TeamDetails = () => {
 
             </div>
 
-            <div className="">
-                
-            </div>
 
             
         
