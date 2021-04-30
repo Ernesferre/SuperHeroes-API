@@ -3,27 +3,20 @@ import {useContext, useEffect, useState } from 'react'
 import AppContext from '../AppContext/AppContext'
 
 
-
-
 const TeamIndicators = () => {
 
     const context = useContext(AppContext);
-    
+
     const [totalInt, setTotalInt] = useState()
     const [totalStr, setTotalStr] = useState()
     const [totalSp, setTotalSp] = useState()
     const [totalDu, setTotalDu] = useState()
     const [totalPo, setTotalPo] = useState()
     const [totalCo, setTotalCo] = useState()
-    const [array, setArray] = useState({});
+    const [array, setArray] = useState([]);
 
 
     const { equipo } = context
-
-
-    
-    
-
 
 
     const calculoPowerstats = () => {
@@ -115,6 +108,7 @@ const TeamIndicators = () => {
     useEffect(() => {
         calculoPowerstats(); 
         console.log(equipo);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [equipo]);
 
     // setArray(array.sort());

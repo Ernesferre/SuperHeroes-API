@@ -39,10 +39,23 @@ const AppReducer = (state, action) => {
                 ...state,
                 equipo:  action.payload
             }
+
+            case types.login:
+                console.log(action.payload)
+                localStorage.setItem('token', action.payload.token)
+            return {
+                ...state,
+                token:  action.payload.token, autenticado: true
+            }
+
+            case types.logout:
+                console.log(action.payload)
+                localStorage.removeItem('token')
+            return {
+                ...state,
+                token:  null, autenticado: false
+            }
             
-
-
-  
       default:
           return state;
   }

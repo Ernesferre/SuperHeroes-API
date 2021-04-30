@@ -1,35 +1,25 @@
 
 import React from 'react';
-import { Link, NavLink, useHistory} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useContext } from 'react';
-import { AuthContext } from '../auth/AuthContext';
-import { types } from '../types/types';
+import AppContext from '../AppContext/AppContext'
 
 export const Navbar = () => {
 
-    const { user: { name }, dispatch }  = useContext(AuthContext);
-    const history = useHistory();
-    // console.log(history);
-
+    const { logout }  = useContext(AppContext);
+    
     const handleLogout = () => {
-
-        history.replace('/login');
-
-        dispatch({
-            type: types.logout
-        })
+        logout();
     }
     
-
     return (
         <nav className="navbar sticky-top navbar-expand-sm navbar-dark bg-success ">
             
-            <div className="navbar-collapse d-flex justify-content-start">
+            <div className=" col navbar-collapse container d-flex justify-content-start">
 
-                <div className="navbar-nav p-1">  
+                <div className="navbar-nav p-2">  
                     <NavLink 
-                        // activeClassName="active"
-                        className="nav-item nav-link display-6" 
+                        className="nav-item  nav-link display-6" 
                         to="/Equipo"
                     >
                         Equipo   
@@ -37,9 +27,8 @@ export const Navbar = () => {
                 </div>
        
                 
-                <div className="navbar-nav ">
+                <div className="navbar-nav p-2">
                     <NavLink 
-                        // activeClassName="active"
                         className="nav-item nav-link display-6" 
                         exact
                         to="/Buscador"
@@ -48,26 +37,19 @@ export const Navbar = () => {
                     </NavLink>
                 </div>
 
-            </div>
+                <div className="ml-auto">
 
-           
-
-            <div className="">
-                <div className="navbar-nav ml-auto nav-item nav-link ml-4 ">
-
-                    <button 
-                        
-                        className="nav-item nav-link text-dark btn btn-warning " 
-                        onClick = {handleLogout}
-                        
+                    <button   
+                        className=" text-dark btn btn-lg" 
+                         onClick = {handleLogout}                        
                     >
                         Logout
                     </button>
-
-                    
+                        
                 </div>
-            </div>
+                
 
+            </div>
 
         </nav>
     )

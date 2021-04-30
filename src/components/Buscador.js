@@ -1,11 +1,8 @@
-import axios from 'axios';
 import { useState, useEffect, useContext } from 'react';
-import CardHero from './CardHero';
-import { useForm } from 'react-hook-form';
+import CardHero from './CardHero'
 import AppContext from '../AppContext/AppContext';
 import { useHistory } from "react-router-dom";
 import Swal from 'sweetalert2';
-
 
 
 const Buscador = () => {
@@ -16,21 +13,19 @@ const Buscador = () => {
 
     const [isVolver, setIsVolver] = useState(false)
     const [isBuscar, setIBuscar] = useState(true)
+    const [busqueda, setbusqueda] = useState('')
 
     const {heroesBuscador, consultarApi, buscarHeroe } = context
     
-    const {register, errors, handleSubmit} = useForm();
+    // const {register, errors, handleSubmit} = useForm();
 
-
-    
     useEffect(() => {
         consultarApi(); 
-        // console.log(heroesBuscador)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+    
 
-
-
-const onSubmit = (data, e) => { 
+const handleSubmit = (e) => { 
     e.preventDefault()
     
     // if (data.titulo) {
@@ -38,10 +33,9 @@ const onSubmit = (data, e) => {
     // } else {
     //     console.log("Campo Obligatorio")
     // }
-
-    console.log(data)
+  
    
-    const personaje = heroesBuscador.filter(item => item.name.toLowerCase() === data.titulo.toLowerCase());
+    const personaje = heroesBuscador.filter(item => item.name.toLowerCase() === busqueda.toLowerCase());
 
     console.log(personaje);
     
@@ -66,45 +60,39 @@ const onSubmit = (data, e) => {
     }   
 }
 
-
-
 const handleRefresh = () => {
     history.push("/Buscador");
 }
 
+const handleChange = (e) => {
+    setbusqueda(e.target.value)
+}
+
       
-
-
     return ( 
     
     <div className="mt-5 container">
 
             <h1 className="text-white">Buscador SuperHeroes</h1>
-
                 { 
                     heroesBuscador.length ?
-
-                        (
+                    (
                         <div className="container">
                         <div className="jumbotron">  
-
-                            
-
-                            
-                        
                             
                             <form 
-                                className="text-center mb-5"
-                                onSubmit={handleSubmit(onSubmit)}>
+                                className="text-center form-inline mb-5"
+                                onSubmit={handleSubmit}>
                                         
                                         <input 
                                             type="text" 
-                                            className="form-control shadow-lg p-3 mb-2 bg-white rounded" 
+                                            className="form-control form-control-lg mx-auto mb-2 mr-sm-2 shadow-lg mb-4 bg-white rounded w-25" 
                                             id="heroe"   
                                             name="titulo"
                                             placeholder="Encuentra a tu Heroe"
-                                            // onChange={handleChange} 
-                                            {...register("titulo", { required: true, message: "Campo Obligatorio"})}
+                                            onInput={handleChange} 
+                                            // value={busqueda}
+                                            // {...register("titulo", { required: true, message: "Campo Obligatorio"})}
                                             // ref={
                                             //     register({
                                             //         required: {value: true, message: 'Nombre Obligatorio'}
@@ -112,9 +100,9 @@ const handleRefresh = () => {
                                             // }
                                         />
 
-                                    {/* <span className="text-danger text-small d-block mb-2">
-                                        {errors.usuario && errors.usuario.message}
-                                    </span> */}
+                                            <span className="text-danger text-small d-block mb-2">
+                                                {/* {errors.titulo} */}
+                                            </span>
 
                                     <div className="d-flex justify-content-around">
                 
@@ -125,19 +113,6 @@ const handleRefresh = () => {
                                             >
                                                     Buscar 
                                             </button>) }
-                                        
-                                        
-                                        {/* {          
-                                            (<button 
-                                                className="btn btn-danger btn-lg"
-                                                type="submit"
-                                            >
-                                                Buscar 
-                                            </button>)
-                                        
-                                        
-                                        } */}
-
 
                                         { isVolver && <button 
                                                 className="btn btn-primary"
@@ -145,12 +120,8 @@ const handleRefresh = () => {
                                             >
                                                 Volver
                                         </button> }
-
-                                        
-                                        
-                                        
-
-                                    </div>
+                                                                                
+                                  </div>
                             </form>
 
                             <div className="d-flex flex-wrap justify-content-center">   
@@ -170,6 +141,7 @@ const handleRefresh = () => {
                         </div> 
 
                     </div>
+
                     ) :
 
                         <div className="d-flex justify-content-around"> 
@@ -177,11 +149,8 @@ const handleRefresh = () => {
                                     <span class="sr-only"></span>
                             </div>
                         </div>
-                    
+
                     }
-
-                    
-
     </div>
      );
 
@@ -192,28 +161,6 @@ export default Buscador;
 
 
 
-                    // {  {elegido} ?  
-                     
-                    //     (elegido.map (item => (
-                    //         <li
-                    //             key= {item.id} 
-                    //             img= {item.image}
-                    //             name= {item.name}
-                    //         >    
-                    //         </li>
-
-                    //  )) )
-                     
-                    //  : 
-                     
-                    //     ( heroes.map ( img  => (
-                    //         <CardHero
-                    //             key={img.id}
-                    //             img={img}
-                    //         />
-                    //     ))
-                    //     )
-                    // }
 
 
 
@@ -226,15 +173,4 @@ export default Buscador;
 
 
 
-
-                    // .featuredProducts ul {
-                    //     display: flex;
-                    //     flex-wrap: wrap;
-                    //     justify-content: center;
-                        
-                    //   }
-                      
-                    //   .featuredProducts ul li {
-                    //     width: 20%;
-                    //     list-style: none;
-                    //   }
+                  

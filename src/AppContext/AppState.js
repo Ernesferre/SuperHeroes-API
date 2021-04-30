@@ -8,6 +8,7 @@ import axios from 'axios';
 
 
 
+
 const AppState = ({children} ) => {
 
     const initialState = {
@@ -15,6 +16,8 @@ const AppState = ({children} ) => {
         heroes: [],
         equipo: [],
         heroesBuscador: [],
+        token: localStorage.getItem('token') || null, 
+        autenticado: false
     }
 
     const [state, dispatch] = useReducer(AppReducer, initialState)
@@ -33,10 +36,29 @@ const AppState = ({children} ) => {
             console.log(error)
             
         }
+    }
+
+
+
+
+        ///////////////////////////
+
+        // useEffect (() => {
+        // const getPeople = async ()=> {
+        // const respuesta = await axios('https://superheroapi.com/api/10159244794788658/character/1')
+        // const resultado = await respuesta.json();
+
+        // setCharacters(resultado)
+        // console.log(resultado)
+        // }
+
+        // getPeople();
+        // console.log(characters)
+        // },[])
         
       
         
-}
+
 
 const buscarHeroe = async (personaje) => {
     dispatch ({
@@ -70,6 +92,23 @@ const visualizarHeroe = async (heroe) => {
     })
 }
 
+const login = async (data) => {
+    try {
+        const Response = await axios.post("http://challenge-react.alkemy.org/",data)
+        dispatch({
+        type: types.login, payload: Response.data
+    })
+    console.log(Response);
+    } catch (error) {
+        
+    }
+}
+
+const logout = () => {
+    dispatch({type: types.logout})
+        
+    
+}
 
     
     return (
@@ -78,12 +117,17 @@ const visualizarHeroe = async (heroe) => {
             heroes: state.heroes,
             equipo: state.equipo,
             heroesBuscador: state.heroesBuscador,
+            token: state.token,
+            autenticado: state.autenticado,
             consultarApi,
             buscarHeroe,
             regresarHeroes,
             agregarAlEquipo,
             eliminarHeroe,
-            visualizarHeroe
+            visualizarHeroe,
+            login,
+            logout
+            
             
 
 

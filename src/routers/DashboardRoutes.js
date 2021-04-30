@@ -1,15 +1,10 @@
 import { Switch, Route, Redirect } from "react-router-dom"
 import Navbar from '../components/Navbar';
-
 import Buscador from "../components/Buscador";
 import Equipo from "../components/Equipo";
 import TeamDetails from "../components/TeamDetails";
-// importo el contexto
-
 
 const DashboardRoutes = () => {
-
-
 
     return ( 
         <>

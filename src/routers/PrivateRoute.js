@@ -1,35 +1,39 @@
-import React from 'react'
+import React, {useEffect, useContext} from 'react'
 import { Redirect, Route } from 'react-router'
-import PropTypes from 'prop-types';
+import AppContext from '../AppContext/AppContext'
+
 
 const PrivateRoute = ({
-    isAuthenticated,
+
     component: Component,
-    ...rest
+    ...props
 
 }) => {
+
+    const context = useContext(AppContext);
+
+    const { autenticado } = context
+    
+    useEffect(() => {
+        console.log(autenticado)
+    }, [autenticado])
+
     return (
-       <Route {...rest}
+       <Route {...props}
             component={ (props) => (
-                ( isAuthenticated )
+                ( autenticado )
                     ? (<Component {...props}/>)
                     : (<Redirect to="/login"/> )
-
-
-            )}
-       
+            )}     
        />
-
     )
-
-    
 }
 
 
 
 export default PrivateRoute;
 
-PrivateRoute.propTypes = {
-    isAuthenticated: PropTypes.bool.isRequired,
-    component: PropTypes.func.isRequired
-}
+// PrivateRoute.propTypes = {
+//     isAuthenticated: PropTypes.bool.isRequired,
+//     component: PropTypes.func.isRequired
+// }

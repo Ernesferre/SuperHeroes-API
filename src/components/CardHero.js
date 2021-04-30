@@ -1,20 +1,15 @@
-import React, {useContext } from 'react'
+import React, {useContext, useState } from 'react'
 import AppContext from '../AppContext/AppContext'
 import Swal from 'sweetalert2'
-import {Link} from 'react-router-dom';
-
-
-
 
 const CardHero = ({ img } ) => {
 
     
-
+    const [goods, setGoods] = useState(0);
+    const [bads, setBads] = useState(0);
     const context = useContext(AppContext);
 
-    const { heroes, agregarAlEquipo, equipo, visualizarHeroe } = context
-    
-    
+    const { heroes, agregarAlEquipo, equipo } = context
 
     const handleClick = (id) => {
 
@@ -32,32 +27,66 @@ const CardHero = ({ img } ) => {
               })
             } else {
 
+           
+
             console.log("El Heroes NO encuentra dentro del equipo")
             if (equipo.length < 6) {
 
                 const heroe = heroes.find( personaje => personaje.id === id)
-                console.log(heroe);
+               
+                console.log(heroe.biography.alignment);
+                
+                
+                // Intento de validacion para 3 Heroes buenos y 3 Heroes Malos
+                
+                if (heroe.biography.alignment === "good") {
+                    console.log( "El Hereo Agregado es BUENO");
+                    let counterGood =  goods + 1;
+                    setGoods(counterGood);
+                    console.log(counterGood);
+                    console.log(goods)
+
+                    setGoods (goods + 1);
+                    console.log(goods);
+                } else {
+                    console.log( "El Hereo Agregado es MALO")
+                    let counterBad = bads + 1;
+                    setBads(counterBad);
+                    console.log(counterBad);
+                    console.log(bads)
+
+                    setBads( bads + 1);
+                    console.log(bads);
+                }
+
                 agregarAlEquipo(heroe);
                 // visualizarHeroe(id);
                 
                 console.log("Heroe Elegido");
+
+                const orientacion = img.biography.alignment
+                console.log(orientacion);
+
+                if (orientacion === "good") {
+                    setGoods(goods + 1)
+                    console.log(goods);
+                } else {
+                    setBads(bads + 1);
+                    console.log(bads);
+                }
+                
+
                 console.log(equipo);
                 console.log(equipo.length);
     
                 Swal.fire({
                         position: 'center',
                         icon: 'success',
-                        title: `Heroe numero ${equipo.length + 1} agregado ! `,
+                        title: `Heroe numero ${equipo.length + 1} agregado con orientacion ${orientacion}  ! `,
                         showConfirmButton: false,
                         timer: 2000
                       })
-    
-                      
-                
-                
-    
-                
-                // history.push("/Equipo");
+                    
             } else if  (equipo.length === 5) {
                 Swal.fire({
                     position: 'center',
@@ -74,40 +103,44 @@ const CardHero = ({ img } ) => {
                     icon: 'error',
                     title: 'UPS',
                     text: 'Lo Siento, ya has agregado a tus 6 heroes',
-                    // footer: <a to={`/Equipo`} > Ver Equipo </Link>,
-                  })
-                
+                  })      
                 }
-            } 
-        
-        
+            }         
         }
+
+      
+
+
     
     return (
         
-        
-        
             <div className="card ms-3 mb-3 d-flex flex-wrap bg-success p-2" style={ { maxWidth: 150 }}>
             
-
                     <div className="card-body">
                         <p className="card-title text-center mt-3"> {img.name} </p> 
+                        
                     </div>
             
                         <img  src={img.images.md} alt={ img.name } className="card-img img-thumbnail" />  
 
-                        <div className="card-body text-center mb-3">               
-                            <button 
-                                    className="btn btn-warning card-text text-center"
-                                    onClick= {() => handleClick(img.id)}
-                                    
-                                    >Agregar a Equipo
-                            </button>
-                        </div>
+                    <div className="card-body text-center mb-3">               
+                        <button 
+                            className="btn btn-warning card-text text-center"
+                            onClick= {() => handleClick(img.id)}          
+                            >Agregar a Equipo
+                        </button>
+                    </div>    
 
-                    
             </div>
     )
 }
 
 export default CardHero;
+
+
+
+
+
+
+
+  

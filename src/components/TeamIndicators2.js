@@ -10,7 +10,7 @@ const TeamIndicators2 = () => {
 
     const { equipo } = context
 
-    console.log(equipo[0].appearance.weight[1]);
+    // console.log(equipo[0].appearance.weight[1]);
 
     
         // Construyo un nuevo array con los pesos de cada integrante
@@ -57,7 +57,8 @@ const TeamIndicators2 = () => {
     
     
     useEffect(() => {
-        calculoPromedios();     
+        calculoPromedios();
+        // eslint-disable-next-line react-hooks/exhaustive-deps     
     }, [equipo]);
 
     return (

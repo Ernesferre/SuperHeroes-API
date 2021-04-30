@@ -8,7 +8,8 @@ export const types = {
     buscar_heroe: "buscar_heroe",
     regresarHeroes: "regresarHeroes",
     eliminar_Heroe: "eliminar_Heroe",
-    visualizar_heroe: "visualizar_heroe"
-
+    visualizar_heroe: "visualizar_heroe",
+    login: "login",
+    logout: "logout"
 }
 
