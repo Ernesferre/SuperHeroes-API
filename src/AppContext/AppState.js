@@ -1,5 +1,5 @@
 
-import { useReducer } from 'react'
+import { useReducer, useEffect } from 'react'
  
 import AppReducer from "./AppReducer";
 import AppContext from "./AppContext";
@@ -37,27 +37,6 @@ const AppState = ({children} ) => {
             
         }
     }
-
-
-
-
-        ///////////////////////////
-
-        // useEffect (() => {
-        // const getPeople = async ()=> {
-        // const respuesta = await axios('https://superheroapi.com/api/10159244794788658/character/1')
-        // const resultado = await respuesta.json();
-
-        // setCharacters(resultado)
-        // console.log(resultado)
-        // }
-
-        // getPeople();
-        // console.log(characters)
-        // },[])
-        
-      
-        
 
 
 const buscarHeroe = async (personaje) => {
@@ -105,10 +84,18 @@ const login = async (data) => {
 }
 
 const logout = () => {
-    dispatch({type: types.logout})
-        
-    
+    dispatch({type: types.logout})   
 }
+
+
+
+useEffect(() => {
+    consultarApi(); 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+}, []);
+
+
+
 
     
     return (
@@ -127,9 +114,6 @@ const logout = () => {
             visualizarHeroe,
             login,
             logout
-            
-            
-
 
          }}>
             {children}

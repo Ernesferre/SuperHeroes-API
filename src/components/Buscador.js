@@ -1,46 +1,38 @@
+import React from 'react';
 import { useState, useEffect, useContext } from 'react';
 import CardHero from './CardHero'
 import AppContext from '../AppContext/AppContext';
-import { useHistory } from "react-router-dom";
+
 import Swal from 'sweetalert2';
+
+import { useForm } from 'react-hook-form';
 
 
 const Buscador = () => {
 
-    const history = useHistory();
 
     const context = useContext(AppContext);
-
     const [isVolver, setIsVolver] = useState(false)
     const [isBuscar, setIBuscar] = useState(true)
     const [busqueda, setbusqueda] = useState('')
+    const {heroesBuscador, regresarHeroes, buscarHeroe, heroes } = context 
+    const {register, handleSubmit} = useForm();
 
-    const {heroesBuscador, consultarApi, buscarHeroe } = context
     
-    // const {register, errors, handleSubmit} = useForm();
-
-    useEffect(() => {
-        consultarApi(); 
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+ 
     
 
-const handleSubmit = (e) => { 
-    e.preventDefault()
+const onSubmit = (data, e) => { 
     
-    // if (data.titulo) {
-    //     console.log("Heroe Ingresado")
-    // } else {
-    //     console.log("Campo Obligatorio")
-    // }
+    console.log(data)
   
    
-    const personaje = heroesBuscador.filter(item => item.name.toLowerCase() === busqueda.toLowerCase());
+    const personaje = heroesBuscador.filter(item => item.name.toLowerCase() === data.titulo.toLowerCase());
 
     console.log(personaje);
     
     if (personaje.length > 0) {
-        console.log("Heroe ENCONTRADO")
+        // console.log("Heroe encontrado")
         setIsVolver(true);
         setIBuscar(false);
         buscarHeroe(personaje);
@@ -48,7 +40,7 @@ const handleSubmit = (e) => {
         e.target.reset();
 
     } else {
-        console.log("personaje no encontrado")
+        // console.log("Heroe no encontrado")
         Swal.fire({
             position: 'center',
             icon: 'warning',
@@ -60,13 +52,11 @@ const handleSubmit = (e) => {
     }   
 }
 
+
 const handleRefresh = () => {
-    history.push("/Buscador");
+    regresarHeroes(heroes);
 }
 
-const handleChange = (e) => {
-    setbusqueda(e.target.value)
-}
 
       
     return ( 
@@ -82,7 +72,7 @@ const handleChange = (e) => {
                             
                             <form 
                                 className="text-center form-inline mb-5"
-                                onSubmit={handleSubmit}>
+                                onSubmit={handleSubmit(onSubmit)}>
                                         
                                         <input 
                                             type="text" 
@@ -90,19 +80,10 @@ const handleChange = (e) => {
                                             id="heroe"   
                                             name="titulo"
                                             placeholder="Encuentra a tu Heroe"
-                                            onInput={handleChange} 
-                                            // value={busqueda}
-                                            // {...register("titulo", { required: true, message: "Campo Obligatorio"})}
-                                            // ref={
-                                            //     register({
-                                            //         required: {value: true, message: 'Nombre Obligatorio'}
-                                            //     })
-                                            // }
+                                            {...register("titulo", { required: true, message: "Campo Obligatorio"})}
+                                      
                                         />
 
-                                            <span className="text-danger text-small d-block mb-2">
-                                                {/* {errors.titulo} */}
-                                            </span>
 
                                     <div className="d-flex justify-content-around">
                 
@@ -114,14 +95,15 @@ const handleChange = (e) => {
                                                     Buscar 
                                             </button>) }
 
-                                        { isVolver && <button 
-                                                className="btn btn-primary"
+                                        {/* { isVolver ?  */}
+                                        <button 
+                                                className="btn btn-warning btn-lg"
                                                 onClick={handleRefresh}
                                             >
                                                 Volver
-                                        </button> }
-                                                                                
-                                  </div>
+                                        </button> 
+                                                                           
+                                    </div>
                             </form>
 
                             <div className="d-flex flex-wrap justify-content-center">   
@@ -145,8 +127,8 @@ const handleChange = (e) => {
                     ) :
 
                         <div className="d-flex justify-content-around"> 
-                            <div class="spinner-border text-warning" role="status">
-                                    <span class="sr-only"></span>
+                            <div className="spinner-border text-warning" role="status">
+                                    <span className="sr-only"></span>
                             </div>
                         </div>
 

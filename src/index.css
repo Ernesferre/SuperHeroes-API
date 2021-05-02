@@ -61,6 +61,19 @@ a {
   border: none;
   transition: background-color .3s ease;
 }
+
+.btn_nav {
+  font-family: sans-serif;
+  background-color: black;
+  color: #e1e1e1;
+  font-size: 1.4;
+  font-weight: 400;
+  border-radius: .5rem;
+  border: none;
+  /* transition: background-color .3s ease; */
+}
+
+
 .btn:hover {
   cursor: pointer;
 }

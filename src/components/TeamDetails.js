@@ -40,7 +40,7 @@ const TeamDetails = () => {
             
             <div className="row mt-3 d-flex justify-content-center">
 
-                    <div className="col-4 text-center p-2">
+                    <div className="col-4 text-center">
                         <img 
                             src={hero.images.md}
                             alt= {hero.name}
@@ -51,9 +51,9 @@ const TeamDetails = () => {
                 
                     <div className="col-4 text-white mb-5">
 
-                        <h3 className="text-black mt-3 mb-5"> <b> Other Features: </b></h3>
+                        
 
-                        <ul className=" ml-4  mb-2">
+                        <ul className=" ml-2  mb-2">
 
                             <li className=""><b> Weight: </b> {hero.appearance.weight[1]} </li>
                             <li className=""><b> Height: </b> {hero.appearance.height[1]} </li>

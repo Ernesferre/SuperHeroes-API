@@ -15,11 +15,11 @@ export const Navbar = () => {
     return (
         <nav className="navbar sticky-top navbar-expand-sm navbar-dark bg-success ">
             
-            <div className=" col navbar-collapse container d-flex justify-content-start">
+            <div className=" container d-flex justify-content-start">
 
-                <div className="navbar-nav p-2">  
+                <div className="navbar-nav mr-auto p-2">  
                     <NavLink 
-                        className="nav-item  nav-link display-6" 
+                        className="nav-item mr-auto  nav-link display-6" 
                         to="/Equipo"
                     >
                         Equipo   
@@ -36,20 +36,23 @@ export const Navbar = () => {
                         Buscador
                     </NavLink>
                 </div>
+            </div>
 
-                <div className="ml-auto">
-
+                <div className="mx-auto">
+            
                     <button   
-                        className=" text-dark btn btn-lg" 
+                        className=" text-warning btn_nav btn-lg pb-2" 
                          onClick = {handleLogout}                        
                     >
                         Logout
+                    
                     </button>
+                
                         
                 </div>
                 
 
-            </div>
+            
 
         </nav>
     )

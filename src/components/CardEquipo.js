@@ -10,8 +10,6 @@ const CardEquipo = ({img}) => {
     const context = useContext(AppContext);
 
     const { hero, eliminarHeroe, equipo, visualizarHeroe} = context
-
-       console.log(equipo);
   
         const handleDetails = (id) => {
             console.log("debo crear un nuevo componente donde pueda visualizar toda la info del Integrante");

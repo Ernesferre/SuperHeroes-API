@@ -16,6 +16,7 @@ const PrivateRoute = ({
     
     useEffect(() => {
         console.log(autenticado)
+        
     }, [autenticado])
 
     return (

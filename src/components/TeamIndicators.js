@@ -50,9 +50,7 @@ const TeamIndicators = () => {
         setTotalSp(Total3);
         console.log(totalSp);
         
-        // const newData3 = {
-        //     speed: totalSp}
-        // setArray([...array, newData3 ])
+
 
         /////////////////////////////////////////////////////////////
 
