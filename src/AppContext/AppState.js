@@ -1,13 +1,9 @@
 
 import { useReducer, useEffect } from 'react'
- 
 import AppReducer from "./AppReducer";
 import AppContext from "./AppContext";
 import { types }  from "../types/types" ;
 import axios from 'axios';
-
-
-
 
 const AppState = ({children} ) => {
 
@@ -52,14 +48,14 @@ const regresarHeroes = async (heroes) => {
 }
 
 const agregarAlEquipo = async (heroe) => {
-    console.log(heroe);
+    // console.log(heroe);
     dispatch({
         type: types.agregar_equipo, payload: heroe
     })
 }
 
 const eliminarHeroe = async (heroe) => {
-    console.log(heroe);
+    // console.log(heroe);
     dispatch({
         type: types.eliminar_Heroe, payload: heroe
     })
@@ -77,7 +73,7 @@ const login = async (data) => {
         dispatch({
         type: types.login, payload: Response.data
     })
-    console.log(Response);
+    // console.log(Response);
     } catch (error) {
         
     }
@@ -87,16 +83,10 @@ const logout = () => {
     dispatch({type: types.logout})   
 }
 
-
-
 useEffect(() => {
     consultarApi(); 
     // eslint-disable-next-line react-hooks/exhaustive-deps
 }, []);
-
-
-
-
     
     return (
         <AppContext.Provider value= {{

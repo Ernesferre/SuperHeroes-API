@@ -24,67 +24,43 @@ const TeamIndicators = () => {
         const Total1 = equipo.reduce((total, integrante) => {
                 return total + integrante.powerstats.intelligence; }, 0);
         setTotalInt(Total1);
-        console.log(totalInt);
-
-        // const newData1 = {
-        //     intelligence: totalInt}
-        // setArray([...array, newData1 ])
+        // console.log(totalInt);
 
         //////////////////////////////////////////////////////////////
 
         const Total2= equipo.reduce((total, integrante) => {
             return total + integrante.powerstats.strength; }, 0);
         setTotalStr(Total2);
-        console.log(totalStr);
-
-        // const newData2 = {
-        //     strength: totalStr}
-        // setArray([...array, newData2 ])
-
+        // console.log(totalStr);
 
         /////////////////////////////////////////////////////////////
-
 
         const Total3= equipo.reduce((total, integrante) => {
             return total + integrante.powerstats.speed; }, 0);
         setTotalSp(Total3);
-        console.log(totalSp);
+        // console.log(totalSp);
         
-
-
         /////////////////////////////////////////////////////////////
 
         const Total4= equipo.reduce((total, integrante) => {
             return total + integrante.powerstats.durability; }, 0);
         setTotalDu(Total4);
-        console.log(totalDu);
-
-        // const newData4 = {
-        //     durability: totalDu}
-        // setArray([...array, newData4 ])
+        // console.log(totalDu);
 
         /////////////////////////////////////////////////////////////
 
         const Total5= equipo.reduce((total, integrante) => {
             return total + integrante.powerstats.power; }, 0);
         setTotalPo(Total5);
-        console.log(totalPo);
-        
-        // const newData5 = {
-        //     power: totalPo}
-        // setArray([...array, newData5 ])
+        // console.log(totalPo);
 
         ///////////////////////////////////////////////////////////////
 
         const Total6= equipo.reduce((total, integrante) => {
             return total + integrante.powerstats.combat; }, 0);
         setTotalCo(Total6);
-        console.log(totalCo);
-        
-        // const newData6 = {
-        //     combat: totalCo}
-        // setArray([...array, newData6 ])
-
+        // console.log(totalCo);
+ 
         //////////////////////////////////////////////////////////////
 
         const newData = {           
@@ -96,21 +72,16 @@ const TeamIndicators = () => {
             combat: totalCo       
         }
         setArray([newData])
-
-        // console.log(array)
     }
 
-    console.log(array)
+    // console.log(array)
 
 
     useEffect(() => {
         calculoPowerstats(); 
-        console.log(equipo);
+        // console.log(equipo);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [equipo]);
-
-    // setArray(array.sort());
-    // console.log(array);
 
 
     return (
@@ -118,8 +89,7 @@ const TeamIndicators = () => {
         <div className="mb-4">
             
             <h3 className="text-white">Acumulados de Powerstats</h3>
-
-
+            
             <ul className="list-group list-group-flush bg-warning mb-3">
 
                                 <li className="list-group-item bg-warning"><b> Inteligencia Total : </b> {totalInt} </li>

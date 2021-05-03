@@ -21,27 +21,27 @@ const AppReducer = (state, action) => {
                 heroesBuscador: action.payload
             }
             case types.agregar_equipo:
-                console.log(action.payload)
+                // console.log(action.payload)
             return {
                 ...state,
                 equipo: [...state.equipo, action.payload]
             }
             case types.visualizar_heroe:
-                console.log(action.payload)
+                // console.log(action.payload)
             return {
                 ...state,
                 hero:  action.payload
             }
 
             case types.eliminar_Heroe:
-                console.log(action.payload)
+                // console.log(action.payload)
             return {
                 ...state,
                 equipo:  action.payload
             }
 
             case types.login:
-                console.log(action.payload)
+                // console.log(action.payload)
                 localStorage.setItem('token', action.payload.token)
             return {
                 ...state,
@@ -49,7 +49,7 @@ const AppReducer = (state, action) => {
             }
 
             case types.logout:
-                console.log(action.payload)
+                // console.log(action.payload)
                 localStorage.removeItem('token')
             return {
                 ...state,

@@ -12,7 +12,7 @@ const Equipo = () => {
 
     const { equipo } = context
 
-    console.log(equipo);
+    // console.log(equipo);
 
     return (
       <div>

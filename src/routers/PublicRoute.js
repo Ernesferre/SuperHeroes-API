@@ -19,8 +19,6 @@ const PublicRoute = ({
     )    
 }
 
-
-
 export default PublicRoute;
 
 PublicRoute.propTypes = {

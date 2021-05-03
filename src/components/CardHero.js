@@ -4,7 +4,6 @@ import Swal from 'sweetalert2'
 
 const CardHero = ({ img } ) => {
 
-    
     const [goods, setGoods] = useState(0);
     const [bads, setBads] = useState(0);
     const context = useContext(AppContext);
@@ -14,7 +13,7 @@ const CardHero = ({ img } ) => {
     const handleClick = (id) => {
 
         const actualId = id
-        console.log(actualId);
+        // console.log(actualId);
         const exist = equipo.some(items => items.id === actualId);
         if (exist) {
             console.log("El Heroes SI encuentra dentro del equipo")
@@ -26,43 +25,33 @@ const CardHero = ({ img } ) => {
                 timer: 2300
               })
             } else {
-
-           
-
-            console.log("El Heroes NO encuentra dentro del equipo")
+            // console.log("El Heroes NO encuentra dentro del equipo")
             if (equipo.length < 6) {
 
                 const heroe = heroes.find( personaje => personaje.id === id)
                
-                console.log(heroe.biography.alignment);
-                
-                
-                // Intento de validacion para 3 Heroes buenos y 3 Heroes Malos
+                // console.log(heroe.biography.alignment);
+
+                // validacion de ingreso 3 Heroes buenos y 3 Heroes Malos
                 
                 if (heroe.biography.alignment === "good") {
                     console.log( "El Hereo Agregado es BUENO");
                     let counterGood =  goods + 1;
                     setGoods(counterGood);
-                    console.log(counterGood);
-                    console.log(goods)
+                    // console.log(goods);
 
-                    setGoods (goods + 1);
-                    console.log(goods);
                 } else {
                     console.log( "El Hereo Agregado es MALO")
                     let counterBad = bads + 1;
                     setBads(counterBad);
-                    console.log(counterBad);
-                    console.log(bads)
-
-                    setBads( bads + 1);
-                    console.log(bads);
+                    // console.log(bads);
                 }
 
                 agregarAlEquipo(heroe);
+                
                 // visualizarHeroe(id);
                 
-                console.log("Heroe Elegido");
+                // console.log("Heroe Elegido");
 
                 const orientacion = img.biography.alignment
                 console.log(orientacion);
@@ -76,8 +65,8 @@ const CardHero = ({ img } ) => {
                 }
                 
 
-                console.log(equipo);
-                console.log(equipo.length);
+                // console.log(equipo);
+                // console.log(equipo.length);
     
                 Swal.fire({
                         position: 'center',
@@ -102,16 +91,13 @@ const CardHero = ({ img } ) => {
                 Swal.fire({
                     icon: 'error',
                     title: 'UPS',
-                    text: 'Lo Siento, ya has agregado a tus 6 heroes',
+                    text: ' Ya has agregado a tus 6 heroes, Dirigite a la seccion "Equipo" para conocerlos',
                   })      
                 }
             }         
         }
 
-      
 
-
-    
     return (
         
             <div className="card ms-3 mb-3 d-flex flex-wrap bg-success p-2" style={ { maxWidth: 150 }}>

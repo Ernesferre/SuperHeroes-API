@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useEffect, useContext } from 'react';
+import { useState, useContext } from 'react';
 import CardHero from './CardHero'
 import AppContext from '../AppContext/AppContext';
 
@@ -10,33 +10,26 @@ import { useForm } from 'react-hook-form';
 
 const Buscador = () => {
 
-
     const context = useContext(AppContext);
     const [isVolver, setIsVolver] = useState(false)
     const [isBuscar, setIBuscar] = useState(true)
-    const [busqueda, setbusqueda] = useState('')
     const {heroesBuscador, regresarHeroes, buscarHeroe, heroes } = context 
     const {register, handleSubmit} = useForm();
 
-    
- 
-    
-
 const onSubmit = (data, e) => { 
     
-    console.log(data)
+    // console.log(data)
   
-   
     const personaje = heroesBuscador.filter(item => item.name.toLowerCase() === data.titulo.toLowerCase());
 
-    console.log(personaje);
+    // console.log(personaje);
     
     if (personaje.length > 0) {
         // console.log("Heroe encontrado")
         setIsVolver(true);
         setIBuscar(false);
         buscarHeroe(personaje);
-        console.log(heroesBuscador);
+        // console.log(heroesBuscador);
         e.target.reset();
 
     } else {

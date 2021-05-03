@@ -9,13 +9,12 @@ const CardEquipo = ({img}) => {
     
     const context = useContext(AppContext);
 
-    const { hero, eliminarHeroe, equipo, visualizarHeroe} = context
+    const { eliminarHeroe, equipo, visualizarHeroe} = context
   
         const handleDetails = (id) => {
-            console.log("debo crear un nuevo componente donde pueda visualizar toda la info del Integrante");
-            console.log(id)
+            // console.log(id)
             visualizarHeroe(id);
-            console.log(hero);
+            // console.log(hero);
             history.push("/TeamDetails")            
         } 
 
@@ -23,7 +22,7 @@ const CardEquipo = ({img}) => {
             console.log(`removiendo personaje con ID: ${id}`);
             const DeleteHeroe = equipo.filter((heroe) => heroe.id !== id);
             eliminarHeroe(DeleteHeroe);
-            console.log(equipo);
+            // console.log(equipo);
         }
 
     return (

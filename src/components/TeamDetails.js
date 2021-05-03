@@ -12,7 +12,7 @@ const TeamDetails = () => {
 
         const { hero } = context
 
-        console.log(hero);
+        // console.log(hero);
 
     const handleBack = () => {
         history.push("/Equipo");   
@@ -21,10 +21,6 @@ const TeamDetails = () => {
 
     return (
         <>
-           
-        
-        
-        
             <div className="row d-flex justify-content-center">
                     
                     <h1 className="text-white"> {hero.name} </h1>
